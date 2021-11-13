@@ -1,0 +1,263 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* header */
+
+.header .logo-details {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  height: 70px;
+  padding-left: 10px;
+}
+
+.header .logo-details img {
+  height: 50px;
+}
+
+.header {
+  align-items: center;
+  background: #000;
+  display: flex;
+  justify-content: space-between;
+  min-height: 70px;
+  padding: 0;
+  position: fixed;
+  transition: all 0.5s ease;
+  width: 100%;
+  z-index: 100;
+}
+
+.header .menu {
+  flex: auto;
+  padding: 10px 70px;
+}
+
+.header .menu ul {
+  list-style-type: none;
+}
+
+.header .menu ul li {
+  float: left;
+  margin-right: 40px;
+}
+
+.header .menu ul li:last-child {
+  margin-right: 0;
+}
+
+.header .menu ul li a {
+  color: #afafaf;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.header .menu ul li a.active {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.header .help-link a {
+  display: flex;
+  text-decoration: none;
+}
+
+.header .help-link i {
+  border: 2px solid;
+  color: #e35e00;
+  border-radius: 50%;  
+  font-size: 25px; 
+  margin-right: 10px;
+}
+
+.header .profile-details {
+  background: #141c24;
+  cursor: pointer;
+  display: inline-block;
+  margin: 5px;
+  min-width: 40px;  
+  padding: 5px;
+  position: relative;
+}
+
+.header .profile-details i {
+  color: #fff;
+  font-size: 35px;  
+  margin: auto;
+  padding-top: 5px;
+}
+
+.header .profile-details .dropdown-menu {
+  background-color: #ffffff;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  display: none;
+  min-width: 160px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}
+
+.header .profile-details .dropdown-menu::before {
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #eee;
+  border-left: 7px solid transparent;
+  border-bottom-color: #fff;
+  content: '';
+  display: inline-block !important;
+  position: absolute;
+  right: 9px;
+  top: -7px;  
+}
+
+.header .profile-details:hover .dropdown-menu {
+  display: block;
+}
+
+.header .profile-details .dropdown-menu a {
+  color: #7b8a8b;
+  display: block;
+  font-size: 14px;
+  padding: 0 20px 5px;
+  text-decoration: none;  
+}
+
+.header .profile-details .dropdown-menu hr {
+  border: 0;
+  border-top: 1.5px solid #7b8a8b;
+  opacity: 0.3;
+}
+
+.header .profile-details .dropdown-menu .sub-menu-title {
+  color: #7b8a8b;
+  display: block;
+  font-size: 14px;
+  opacity: 0.5;
+  padding: 10px 20px 5px;
+  text-transform: uppercase;
+}
+
+.header .profile-details .dropdown-menu a span {
+  white-space: nowrap;
+}
+
+/* sidebar */
+
+.sidebar {
+  background: #000;
+  height: 100%; 
+  margin-top: 70px;
+  position: fixed;
+  transition: all 0.5s ease;
+  width: 200px;
+}
+
+.sidebar.active {
+  width: 70px;
+}
+
+.sidebar .nav-links {
+  margin-top: 10px;
+}
+
+.sidebar .nav-links li {
+  list-style: none;
+  height: 50px;
+  position: relative;
+}
+
+.sidebar .nav-links li a {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  padding: 10px 10px 10px 20px;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  width: 100%;
+}
+
+.sidebar .nav-links li a.active {
+  background: #595959;
+}
+
+.sidebar .nav-links li a:hover {
+  background: #595959;
+}
+
+.sidebar .nav-links li i {
+  color: #fff;
+  font-size: 35px;  
+  min-width: 70px;
+  text-align: center;  
+}
+
+.sidebar .nav-links li a span {
+  color: #fff;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+.page-section {
+  background: #f5f5f5;
+  left: 200px;
+  min-height: 100vh;
+  position: relative;
+  transition: all 0.5s ease;
+  width: calc(100% - 200px);
+}
+
+.sidebar.active ~ .page-section {
+  left: 70px;
+  width: calc(100% - 60px);
+}
+
+.page-section .page-content {
+  padding: 100px 30px 30px;
+  position: relative;  
+}
+
+/* Responsive Media Query */
+
+@media (max-width: 1240px) {
+  .sidebar.active {
+    width: 200px;
+  }
+}
+
+@media (max-width: 700px) {
+  .sidebar {
+    width: 160px;
+  }
+  .page-section{
+    left: 160px;
+    width: calc(100% - 160px);
+  }
+  .header .profile-details {
+    height: 50px;
+    min-width: 40px;
+  }
+  .header .menu {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 550px) {
+  .sidebar {
+    margin-top: 80px;
+  }
+  .sidebar.active ~ .header .profile-details {
+    display: none;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    margin-top: 140px;
+  }
+}
